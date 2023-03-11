@@ -1,7 +1,7 @@
 <template>
   <header class="shadow-sm">
     <nav class="container mx-auto flex gap-5 items-center justify-between px-5">
-      <NuxtLink class="font-bold" to="/">Nuxt Shop</NuxtLink>
+      <NuxtLink class="font-bold" :to="titleUrl">{{ title }}</NuxtLink>
       <ul class="flex gap-5 p-5">
         <li>
           <NuxtLink to="/">Home</NuxtLink>
@@ -17,8 +17,13 @@
   </header>
 </template>
 
-<script>
-export default {};
+<script setup lang="ts">
+type HeaderProps = {
+  title: string;
+  titleUrl: string;
+};
+
+const { title, titleUrl } = defineProps<HeaderProps>();
 </script>
 
 <style lang="scss" scoped></style>

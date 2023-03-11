@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Header />
+    <Header title="Nuxt Shop" titleUrl="/" />
 
     <!-- Output page content -->
     <main class="mx-auto container p-5">
