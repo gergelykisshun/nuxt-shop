@@ -1,9 +1,9 @@
 <template>
   <h2 class="mb-5">All products</h2>
-  <div class="grid grid-cols-4 gap-5">
-    <div v-for="p in products">
-      <NuxtLink :to="`products/${p.id}`">{{ p.title }}</NuxtLink>
-    </div>
+  <div
+    class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5"
+  >
+    <ProductCard v-for="product in products" :product="product" />
   </div>
 </template>
 

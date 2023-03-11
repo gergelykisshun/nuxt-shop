@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Header title="Nuxt Dojo Merch" titleRoute="/products" />
+    <Header title="Nuxt Dojo Merch" titleUrl="/products" />
 
     <!-- Output page content -->
     <main class="mx-auto container p-5">
