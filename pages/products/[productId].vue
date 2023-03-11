@@ -23,10 +23,14 @@
 import { IProduct } from "~~/interfaces/product";
 
 const { productId } = useRoute().params;
-const { data: product } = await useFetch<IProduct>(
+const { data: product, error } = await useFetch<IProduct>(
   `https://fakestoreapi.com/products/${productId}`,
   { key: productId as string }
 );
+
+if (error) {
+  throw createError({ statusCode: 404, statusMessage: "Product not found!" });
+}
 
 definePageMeta({ layout: "products" });
 </script>
