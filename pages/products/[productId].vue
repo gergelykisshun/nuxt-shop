@@ -1,4 +1,8 @@
 <template>
+  <Head>
+    <Title>Nuxt Shop | {{ product?.title || "" }}</Title>
+    <Meta name="description" :content="product?.description || ''"></Meta>
+  </Head>
   <div v-if="product" class="flex flex-col md:flex-row gap-10">
     <img
       :src="product.image"
@@ -14,7 +18,11 @@
       </p>
       <p class="font-bold border-b-2">Product description:</p>
       <p>{{ product.description }}</p>
-      <NuxtLink :to="`/products`" class="btn">Buy</NuxtLink>
+      <button class="btn flex">
+        <i class="material-icons mr-2">add_shopping_cart</i>
+        <span>Add to cart</span>
+      </button>
+      <NuxtLink :to="`/products`" class="btn">Continue shopping</NuxtLink>
     </div>
   </div>
 </template>
@@ -28,7 +36,7 @@ const { data: product, error } = await useFetch<IProduct>(
   { key: productId as string }
 );
 
-if (error) {
+if (!product.value) {
   throw createError({ statusCode: 404, statusMessage: "Product not found!" });
 }
 

@@ -6,6 +6,7 @@
       </p>
       <p class="text-6xl">Oooops.</p>
       <p>{{ error.message }}</p>
+      <button class="btn mt-6" @click="handleClearError">Go To Home</button>
     </div>
   </div>
 </template>
@@ -21,6 +22,8 @@ type ErrorProp = {
 };
 
 const { error } = defineProps<{ error: ErrorProp }>();
+
+const handleClearError = () => clearError({ redirect: "/" });
 </script>
 
 <style scoped></style>
