@@ -11,11 +11,15 @@
       iste. Dolor hic nemo natus ex esse neque enim tenetur debitis quo
       consequatur distinctio nostrum perferendis eos architecto, soluta ad!
     </p>
+    <p>Data from api server : {{ data }}</p>
   </div>
 </template>
 
-<script>
-export default {};
+<script setup>
+const { data } = await useFetch("/api/test?text=TestText123", {
+  method: "POST",
+  body: { age: 30 },
+});
 </script>
 
 <style scoped></style>
