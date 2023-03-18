@@ -1,20 +1,22 @@
 import { defineStore } from "pinia";
+import { useLocalStorage } from "@vueuse/core";
 
-export const useFavouritesStore = defineStore("favourites", () => {
-  // state props
-  const favourites = ref<number[]>([]);
-
-  // computed values
-  const favouriteAmount = computed(() => favourites.value.length);
-
-  // actions
-  function toggleFavourite(id: number) {
-    if (favourites.value.includes(id)) {
-      favourites.value = favourites.value.filter((favId) => favId !== id);
-    } else {
-      favourites.value = [...favourites.value, id];
-    }
-  }
-
-  return { favourites, favouriteAmount, toggleFavourite };
+export const useFavouritesStore = defineStore("favourites", {
+  state: () => ({ favourites: [] as number[] }),
+  getters: {
+    favouriteAmount: (state) => state.favourites.length,
+  },
+  actions: {
+    toggleFavourite(id: number) {
+      if (this.favourites.includes(id)) {
+        this.favourites = this.favourites.filter((favId) => favId !== id);
+      } else {
+        this.favourites = [...this.favourites, id];
+      }
+      localStorage.setItem("favourites", JSON.stringify(this.favourites));
+    },
+  },
+  hydrate(state) {
+    state.favourites = useLocalStorage("favourites", [] as number[]).value;
+  },
 });
