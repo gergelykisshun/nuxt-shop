@@ -12,6 +12,6 @@ body {
   }
 
   .card {
-    @apply flex flex-col items-center gap-2 p-3 rounded-md bg-white shadow-md cursor-pointer text-center;
+    @apply flex flex-col items-center gap-2 p-3 rounded-md bg-white shadow-md text-center;
   }
 }

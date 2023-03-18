@@ -31,4 +31,5 @@ export default defineNuxtConfig({
       publicKey: process.env.PUBLIC_TEST_VALUE,
     },
   },
+  modules: ["@pinia/nuxt"],
 });
