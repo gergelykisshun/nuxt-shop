@@ -23,4 +23,12 @@ export default defineNuxtConfig({
       autoprefixer: {},
     },
   },
+  runtimeConfig: {
+    // only for server routes
+    testKey: process.env.TEST_API_KEY,
+    // public keys available for frontend
+    public: {
+      publicKey: process.env.PUBLIC_TEST_VALUE,
+    },
+  },
 });

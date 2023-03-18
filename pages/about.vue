@@ -11,6 +11,7 @@
       iste. Dolor hic nemo natus ex esse neque enim tenetur debitis quo
       consequatur distinctio nostrum perferendis eos architecto, soluta ad!
     </p>
+    <p>Dynamic product info : {{ productInfo }}</p>
     <p>Data from api server : {{ data }}</p>
   </div>
 </template>
@@ -20,6 +21,8 @@ const { data } = await useFetch("/api/test?text=TestText123", {
   method: "POST",
   body: { age: 30 },
 });
+
+const { data: productInfo } = await useFetch("/api/products/10");
 </script>
 
 <style scoped></style>
