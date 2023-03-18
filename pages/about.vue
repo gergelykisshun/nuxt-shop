@@ -11,8 +11,6 @@
       iste. Dolor hic nemo natus ex esse neque enim tenetur debitis quo
       consequatur distinctio nostrum perferendis eos architecto, soluta ad!
     </p>
-    <p>Dynamic product info : {{ productInfo }}</p>
-    <p>Data from api server : {{ data }}</p>
   </div>
 </template>
 
