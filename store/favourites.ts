@@ -15,6 +15,9 @@ export const useFavouritesStore = defineStore("favourites", {
       }
       localStorage.setItem("favourites", JSON.stringify(this.favourites));
     },
+    hydrateFavourites(favIds: number[]) {
+      this.favourites = favIds;
+    },
   },
   hydrate(state) {
     state.favourites = useLocalStorage("favourites", [] as number[]).value;
